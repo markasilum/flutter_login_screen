@@ -12,8 +12,12 @@ class LoginScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 150, vertical: 100),
         color: Colors.green[100],
         child:Card(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            
           child: Container(
-
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
             child: Row(
               
               children: [
@@ -21,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height*.85,
                   width: MediaQuery.of(context).size.width*.3,
                   padding: EdgeInsets.symmetric(horizontal: 60, vertical: 45),
-                  decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(5), bottomLeft: Radius.circular(5))),
+                  decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                       child:
                       
                       TextButton(onPressed: (){}, 
-                      child:Text("Sign Up Now", style: TextStyle(color: Colors.purple),))
+                          child:Text("Sign Up Now", style: TextStyle(color: Colors.purple),))
 
                     )
                     
@@ -100,21 +104,23 @@ class LoginScreen extends StatelessWidget {
                     
                   ]),
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height*.85,
-                  width: MediaQuery.of(context).size.width*.5163,
-                  decoration: BoxDecoration(color: Colors.purple[50], borderRadius: BorderRadius.only(topRight: Radius.circular(5), bottomRight: Radius.circular(5))),
-                  child: Stack(children: [
-                    Positioned(
-                      left: 200,
-                      top: 200,
-                      child: Text("Welcome back", style: TextStyle(fontSize: 70, fontWeight: FontWeight.w600, color: Colors.purple[800]),)),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.purple[50], 
+                      borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomRight: Radius.circular(20))),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
                       Positioned(
-                      left: 260,
-                      top: 130,
-                      child: Text("Nice to see you again", style: TextStyle(fontSize: 35, fontWeight: FontWeight.normal, color: Colors.grey[800]),))
-                  ]),
-               
+                        top: 250,
+                        child: Text("Welcome back", style: TextStyle(fontSize: 70, fontWeight: FontWeight.w600, color: Colors.purple[800]),)),
+                      Positioned(
+                        top: 200,
+                        child: Text("Nice to see you again", style: TextStyle(fontSize: 35, fontWeight: FontWeight.normal, color: Colors.grey[800]),))
+                    ]),
+                                 
+                  ),
                 ),
               ],
             ),
