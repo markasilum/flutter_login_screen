@@ -78,7 +78,10 @@ class LoginScreen extends StatelessWidget {
                       decoration: BoxDecoration(color: Colors.purple, borderRadius: BorderRadius.all(Radius.circular(10))),
                       width: 400,
                       height: 40,
-                      child: TextButton(onPressed: (){}, 
+                      child: TextButton(
+                        onPressed: (){
+                          Navigator.pushNamed(context, '/home');
+                        }, 
                         child: Text("Login", style: TextStyle(color: Colors.white,), )),
                     ),
                     SizedBox(height: 30,),

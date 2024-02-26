@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_screen/screens/home.dart';
 import 'package:flutter_login_screen/screens/login.dart';
+import 'package:flutter_login_screen/screens/third.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +21,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: false,
       ),
-      home: const LoginScreen(),
+      home: LoginScreen(),
+      routes: {
+        '/home':(context)=> HomeScreen(),
+        '/login':(context) => LoginScreen(),
+        '/third':(context) => ThirdScreen(),
+
+        
+      },
     );
   }
 }

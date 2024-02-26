@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_screen/widgets/header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,28 +12,27 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue[900],
         centerTitle: false,
-        title: const Text('Asilum',
-        style: TextStyle(color: Colors.white), textAlign: TextAlign.left,),
+        title:  Header(title:"Home Screen" ),
       ),
-      drawer: Container(
-        color: Colors.white,
-        width: 400,
-        height: MediaQuery.of(context).size.height,
-        child:  Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            ListTile(
-              leading: Icon(Icons.dashboard, color: Colors.white,),
-              title: Text("Dashboard",style: TextStyle(color: Colors.white),),
-              onTap: (){
-                print("Dashboard cliked");
-              },
-            )
-          ],
-        ),
-      ),
+      // drawer: Container(
+      //   color: Colors.white,
+      //   width: 400,
+      //   height: MediaQuery.of(context).size.height,
+      //   child:  Column(
+      //     mainAxisAlignment: MainAxisAlignment.start,
+      //     crossAxisAlignment: CrossAxisAlignment.center,
+      //     mainAxisSize: MainAxisSize.max,
+      //     children: [
+      //       ListTile(
+      //         leading: Icon(Icons.dashboard, color: Colors.white,),
+      //         title: Text("Dashboard",style: TextStyle(color: Colors.white),),
+      //         onTap: (){
+      //           print("Dashboard cliked");
+      //         },
+      //       )
+      //     ],
+      //   ),
+      // ),
       body: Container(
         color: Colors.grey[300],
         width: screenSize.width,
@@ -42,6 +42,14 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(color: Colors.blue[300], margin: EdgeInsets.only(top: 20),
+            
+            child: TextButton(
+              onPressed: (){
+                  //remove screen in between current screen to destination screen
+                  Navigator.pushNamedAndRemoveUntil(context, '/third', ModalRoute.withName('/login'));
+                }, 
+              child: Text("Go to third screen",style: TextStyle(color: Colors.white)), )),
             Container(
               margin: EdgeInsets.all(20),
               width: screenSize.width*.15,
