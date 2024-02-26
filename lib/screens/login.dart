@@ -9,7 +9,7 @@ class LoginScreen extends StatelessWidget {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: EdgeInsets.symmetric(horizontal: 150, vertical: 100),
+        padding: EdgeInsets.symmetric(horizontal: 130, vertical: 50),
         color: Colors.green[100],
         child:Card(
           shape: RoundedRectangleBorder(
