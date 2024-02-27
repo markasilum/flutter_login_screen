@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_screen/screens/login.dart';
+import 'package:flutter_login_screen/widgets/drawer.dart';
 import 'package:flutter_login_screen/widgets/header.dart';
+import 'package:sidebarx/sidebarx.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,31 +13,13 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Colors.purple,
         centerTitle: false,
-        title:  Header(title:"Home Screen" ),
+        title:  Header(title:"Asilum" ),
       ),
-      // drawer: Container(
-      //   color: Colors.white,
-      //   width: 400,
-      //   height: MediaQuery.of(context).size.height,
-      //   child:  Column(
-      //     mainAxisAlignment: MainAxisAlignment.start,
-      //     crossAxisAlignment: CrossAxisAlignment.center,
-      //     mainAxisSize: MainAxisSize.max,
-      //     children: [
-      //       ListTile(
-      //         leading: Icon(Icons.dashboard, color: Colors.white,),
-      //         title: Text("Dashboard",style: TextStyle(color: Colors.white),),
-      //         onTap: (){
-      //           print("Dashboard cliked");
-      //         },
-      //       )
-      //     ],
-      //   ),
-      // ),
+      // drawer: DrawerWidget(),
       body: Container(
-        color: Colors.grey[300],
+        color: Colors.grey[100],
         width: screenSize.width,
         height: screenSize.height,
         child: Row(
@@ -42,7 +27,59 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(color: Colors.blue[300], margin: EdgeInsets.only(top: 20),
+            SidebarX(
+            
+            theme: SidebarXTheme(
+              itemDecoration: BoxDecoration(color: Color.fromARGB(255, 237, 227, 239), borderRadius: BorderRadius.circular(10) ),
+              selectedItemDecoration: BoxDecoration(color: Color.fromARGB(255, 230, 209, 233), borderRadius: BorderRadius.circular(10) ),
+              decoration: BoxDecoration(color: Color.fromARGB(255, 239, 226, 241),
+              boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 236, 236, 236),
+                    blurRadius: 15.0, // soften the shadow
+                    spreadRadius: 2.0, //extend the shadow
+                    offset: Offset(
+                      5.0, // Move to right 5  horizontally
+                      5.0, // Move to bottom 5 Vertically
+                    ),
+                  )
+                ],)
+            ),
+            
+            extendedTheme: const SidebarXTheme(
+              width: 350,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(color: Color.fromARGB(255, 239, 219, 242),
+              boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 236, 236, 236),
+                    blurRadius: 15.0, // soften the shadow
+                    spreadRadius: 2.0, //extend the shadow
+                    offset: Offset(
+                      5.0, // Move to right 5  horizontally
+                      5.0, // Move to bottom 5 Vertically
+                    ),
+                  )
+                ],
+              ),
+            ),
+           controller: SidebarXController(selectedIndex: 0, extended: true),
+             items:  [
+                    SidebarXItem(icon: Icons.home, label: 'Home'),
+                    SidebarXItem(icon: Icons.newspaper, label: 'News'),
+                    SidebarXItem(icon: Icons.info, label: 'About'),
+                    SidebarXItem(icon: Icons.person, label: 'My Account'),
+                    SidebarXItem(icon: Icons.logout, label: 'Logout', onTap:() {
+                     Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const LoginScreen()),
+                          );
+                    },),
+                ],
+             ),
+            
+            Container(color: Colors.blue[300], margin: EdgeInsets.only(top: 20, left: 20),
+            
             
             child: TextButton(
               onPressed: (){
@@ -50,6 +87,7 @@ class HomeScreen extends StatelessWidget {
                   Navigator.pushNamedAndRemoveUntil(context, '/third', ModalRoute.withName('/login'));
                 }, 
               child: Text("Go to third screen",style: TextStyle(color: Colors.white)), )),
+            
             Container(
               margin: EdgeInsets.all(20),
               width: screenSize.width*.15,
