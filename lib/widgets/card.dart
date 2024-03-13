@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_screen/models.dart';
 
 class CardWidget extends StatelessWidget {
-
-  final String mealImage;
-  final String mealName;
-  final String mealID;
-    const CardWidget({
-      required this.mealID,
-      required this.mealName,
-      required this.mealImage
-    });
+final Meals meal;
+  const CardWidget({ Key? key, required this.meal }) : super(key: key);
 
 
   @override
@@ -19,7 +13,7 @@ class CardWidget extends StatelessWidget {
     return Container(
               margin: EdgeInsets.all(20),
               width: screenSize.width*.25 ,
-              height: screenSize.height*.37,
+              height: screenSize.height*.1,
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -31,8 +25,9 @@ class CardWidget extends StatelessWidget {
                 children: [
                   Container(
                     width: screenSize.width*.25 ,
+                    height: screenSize.height*.1,
                     decoration: BoxDecoration(color: Colors.amber),
-                    child: Text(mealName),
+                    child: Text(meal.mealName),
                   )
                 ],
               ),

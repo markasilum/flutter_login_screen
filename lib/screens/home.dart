@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> loadData() async {
       // Await the http get response, then decode the json-formatted response.
       // var url = Uri.https('https://www.themealdb.com', '/api/json/v1/1/filter.php?c=Beef', {'q': '{http}'});
-      var response = await http.get(Uri.parse("https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"));
+      var response = await http.get(Uri.parse("https://www.themealdb.com/api/json/v1/1/search.php?f=a"));
 
       if (response.statusCode == 200) {
         var jsonResponse = convert.jsonDecode(response.body) as Map<String, dynamic>;
@@ -121,11 +121,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
              ),
             
-            CardWidget(
-              mealID: meals[0].mealID,
-              mealName: meals[0].mealName,
-              mealImage: "mealImage"
-          )
+            // meals.map((one_meal){
+            //     // print(one_meal.mealName);
+            //     return CardWidget(meal: one_meal);
+            //   }).toList(),
+
+            // meals.map((mealItem){
+            //   return CardWidget(meal: mealItem)
+            // })
+            Expanded(
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, // Number of items per row
+               childAspectRatio: 1.5 
+              ),
+              itemCount: meals.length,
+              itemBuilder: (BuildContext context, int index) {
+                return CardWidget(meal: meals[index]);
+              },
+            ),
+          ),
+            
+            
             
           ], 
           ),
