@@ -4,12 +4,10 @@ import 'package:flutter_login_screen/screens/login.dart';
 import 'package:flutter_login_screen/widgets/card.dart';
 import 'package:flutter_login_screen/widgets/drawer.dart';
 import 'package:flutter_login_screen/widgets/header.dart';
-
 import 'package:sidebarx/sidebarx.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 class HomeScreen extends StatefulWidget {
-class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
@@ -62,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: false,
         title:  Header(title:"Asilum" ),
       ),
-      
+      // drawer: DrawerWidget(),
       body: Container(
         color: Colors.grey[100],
         width: screenSize.width,
@@ -145,27 +143,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
             
             
-            DrawerWidget(),
-            Container(
-                                width: 300,
-                                height: 300,
-                                margin: EdgeInsets.only(top: screenSize.height*.2, left: screenSize.width*.3),
-                                decoration: BoxDecoration(
-                                  image: const DecorationImage(
-                                    image: NetworkImage('https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
-                                    fit: BoxFit.cover
-                                    
-                                    ),
-                                    shape: BoxShape.circle,
-                                  color: Colors.green,),
-                                  
-                              ),
-          
-            ], 
-
+            
+          ], 
           ),
       ),
-    );
+    );;
   }
-}
 }
