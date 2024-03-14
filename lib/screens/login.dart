@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_screen/screens/home.dart';
+import 'package:flutter_login_screen/screens/third.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -100,7 +101,12 @@ class LoginScreen extends StatelessWidget {
                       decoration: BoxDecoration(border: Border.all(color: Colors.purple), borderRadius: BorderRadius.all(Radius.circular(10))),
                       child:
                       
-                      TextButton(onPressed: (){}, 
+                      TextButton(onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const ThirdScreen()),
+                          );
+                        }, 
                           child:Text("Sign Up Now", style: TextStyle(color: Colors.purple),))
 
                     )
