@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         List<Meals> fromJson = [];
 
         for (var i = 0; i < jsonResponse['meals'].length; i++) {
-          Meals ulam = Meals(i.toString(),jsonResponse['meals'][i]['strMeal'], jsonResponse['meals'][i]['strMealThumb']);
+          Meals ulam = Meals(i.toString(),jsonResponse['meals'][i]['strMeal'], jsonResponse['meals'][i]['strMealThumb'], jsonResponse['meals'][i]['strCategory'], jsonResponse['meals'][i]['strInstructions']);
           fromJson.add(ulam);
         }
         print(fromJson);
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                crossAxisCount: 3, // Number of items per row
                 mainAxisSpacing: 10,
-               childAspectRatio: .8
+               childAspectRatio: .6
               ),
               itemCount: meals.length,
               itemBuilder: (BuildContext context, int index) {

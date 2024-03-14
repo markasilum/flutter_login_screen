@@ -26,7 +26,10 @@ final Meals meal;
                     
                     height: screenSize.height*.25,
                     decoration: BoxDecoration(
-                      color: Colors.pink,
+                      image: DecorationImage(
+                              image: NetworkImage(meal.mealImage),
+                                fit: BoxFit.cover
+                                ),
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))                 
                       ),
                   ),
@@ -35,10 +38,39 @@ final Meals meal;
                       width: screenSize.width*.30 ,
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                        color: Colors.amber,
+                        
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)) 
                         ),
-                      child: Text(meal.mealName, style: TextStyle(fontSize: 20),),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(meal.mealName, style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500))
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                               child: Row(
+                                children: [
+                                    Text("Category: ", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300)),
+                                    Text(meal.mealCat, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300))
+
+                                ],
+                             )
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10,),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Instructions: ", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300)),
+                                  SizedBox(height: 10,),
+                                  Text(meal.mealInstruct, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w100)),
+                                ],
+                              )
+                            )
+                        ],
+                      ),
                     ),
                   )
                 ],
