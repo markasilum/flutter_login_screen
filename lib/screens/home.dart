@@ -70,57 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SidebarX(
-            
-            theme: SidebarXTheme(
-              itemDecoration: BoxDecoration(color: Color.fromARGB(255, 237, 227, 239), borderRadius: BorderRadius.circular(10) ),
-              selectedItemDecoration: BoxDecoration(color: Color.fromARGB(255, 230, 209, 233), borderRadius: BorderRadius.circular(10) ),
-              decoration: BoxDecoration(color: Color.fromARGB(255, 239, 226, 241),
-              boxShadow: [
-                  BoxShadow(
-                    color: Color.fromARGB(255, 236, 236, 236),
-                    blurRadius: 15.0, // soften the shadow
-                    spreadRadius: 2.0, //extend the shadow
-                    offset: Offset(
-                      5.0, // Move to right 5  horizontally
-                      5.0, // Move to bottom 5 Vertically
-                    ),
-                  )
-                ],)
-            ),
-            
-            extendedTheme: const SidebarXTheme(
-              width: 350,
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(color: Color.fromARGB(255, 239, 219, 242),
-              boxShadow: [
-                  BoxShadow(
-                    color: Color.fromARGB(255, 236, 236, 236),
-                    blurRadius: 15.0, // soften the shadow
-                    spreadRadius: 2.0, //extend the shadow
-                    offset: Offset(
-                      5.0, // Move to right 5  horizontally
-                      5.0, // Move to bottom 5 Vertically
-                    ),
-                  )
-                ],
-              ),
-            ),
-           controller: SidebarXController(selectedIndex: 0, extended: true),
-             items:  [
-                    SidebarXItem(icon: Icons.home, label: 'Home'),
-                    SidebarXItem(icon: Icons.newspaper, label: 'News'),
-                    SidebarXItem(icon: Icons.info, label: 'About'),
-                    SidebarXItem(icon: Icons.person, label: 'My Account'),
-                    SidebarXItem(icon: Icons.logout, label: 'Logout', onTap:() {
-                     Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const LoginScreen()),
-                          );
-                    },),
-                ],
-             ),
-            
+           DrawerWidget(),
             // meals.map((one_meal){
             //     // print(one_meal.mealName);
             //     return CardWidget(meal: one_meal);
@@ -132,8 +82,9 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Number of items per row
-               childAspectRatio: 1.5 
+               crossAxisCount: 3, // Number of items per row
+                mainAxisSpacing: 10,
+               childAspectRatio: .8
               ),
               itemCount: meals.length,
               itemBuilder: (BuildContext context, int index) {

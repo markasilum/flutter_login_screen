@@ -14,7 +14,6 @@ final Meals meal;
               margin: EdgeInsets.all(20),
               width: screenSize.width*.25 ,
               height: screenSize.height*.1,
-              padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20)
@@ -24,10 +23,23 @@ final Meals meal;
   
                 children: [
                   Container(
-                    width: screenSize.width*.25 ,
-                    height: screenSize.height*.1,
-                    decoration: BoxDecoration(color: Colors.amber),
-                    child: Text(meal.mealName),
+                    
+                    height: screenSize.height*.25,
+                    decoration: BoxDecoration(
+                      color: Colors.pink,
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))                 
+                      ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: screenSize.width*.30 ,
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)) 
+                        ),
+                      child: Text(meal.mealName, style: TextStyle(fontSize: 20),),
+                    ),
                   )
                 ],
               ),
