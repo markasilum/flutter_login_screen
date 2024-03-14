@@ -4,15 +4,11 @@ import 'package:flutter_login_screen/screens/login.dart';
 import 'package:flutter_login_screen/widgets/card.dart';
 import 'package:flutter_login_screen/widgets/drawer.dart';
 import 'package:flutter_login_screen/widgets/header.dart';
+
 import 'package:sidebarx/sidebarx.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 class HomeScreen extends StatefulWidget {
-
-
-import 'package:flutter_login_screen/widgets/drawer.dart';
-import 'package:flutter_login_screen/widgets/header.dart';
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -149,8 +145,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
             
             
-            
-          ], 
             DrawerWidget(),
             Container(
                                 width: 300,
@@ -173,4 +167,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+}
 }
